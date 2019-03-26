@@ -6,8 +6,9 @@ var fetchedQuestions = {}
 
 class Sidebar extends React.Component {
     constructor() {
-        super()
-        var fetchQuestions = (async function() {
+        super();
+        
+        (async function() {
             // Fetches questions using stored session cookie
 
             fetch("http://54.146.176.87/login", {
