@@ -1,10 +1,8 @@
 ## Run instructions
 
-Either setup a server and serve index.js, that is in this folder. 
-
-    or 
+To start a development server:
 
 ```
-    yarn global add serve
-    serve -s build 
+$ yarn 
+$ yarn start 
 ```
