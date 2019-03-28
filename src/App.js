@@ -35,7 +35,7 @@ class App extends Component {
 		// });
 		// Fetch Questions
 
-		fetch("localhost:4000/api/question/getQuestions", {
+		fetch("/api/question/getQuestions", {
 			method: "GET",
 			credentials: "include",
 			headers: {
@@ -60,7 +60,7 @@ class App extends Component {
 			console.log(err);
 		});
 
-		fetch("localhost:4000/api/rank", {
+		fetch("/api/rank", {
 			method: "GET",
 			credentials: "include",
 			headers: {
@@ -88,16 +88,7 @@ class App extends Component {
 	render() {
 		return (
 		<div>
-			<Parent questions={this.state.questions} userDetails={ {
-				rank : {
-					rank: 7,
-					uname : "madhavshroff99", 
-					usolved : 11,
-					uhard: 1,
-					umedium: 2,
-					ueasy: 8
-				}
-			}}/>
+			<Parent questions={this.state.questions} userDetails={this.state.rank}/>
 		</div>
 		);
 	}

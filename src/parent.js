@@ -38,7 +38,7 @@ class Parent extends Component {
 						}}/>
 							<div className="submit-button" id="submit">
 								<SubmitButton text="Submit Answer" submit={() => {
-									fetch("localhost:4000/api/question/checkAnswer", {
+									fetch("/api/question/checkAnswer", {
 										method: "POST",
 										credentials: "include",
 										headers: {
