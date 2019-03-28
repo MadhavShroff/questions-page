@@ -12,7 +12,7 @@ class Button extends Component {
 						this.props.submit();
 						document.getElementById("buttonResponse").setAttribute("hidden", false);
 					}}>
-					Submit Answer
+					{this.props.text}
 				</AwesomeButton>
 				<p hidden={true} id="buttonResponse"> Helloooo </p>
 			</div>

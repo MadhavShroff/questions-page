@@ -4,8 +4,6 @@ import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 class Sidebar extends React.Component {
 
     render () {
-
-
     var displayQsn = (async (selected) => {
         try {
             if(selected === "1") {

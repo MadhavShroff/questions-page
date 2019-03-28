@@ -24,6 +24,7 @@
   right : 100;
   position: relative;
   right: 100px; 
+  z-index: 100;
 }
 
 .answer {

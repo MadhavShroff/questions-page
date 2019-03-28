@@ -11,8 +11,7 @@ class App extends Component {
 
 		// LOGIN
 		// REMOVE IN PRODUCTION
-
-		fetch("/api/login", {
+		fetch("https://cicada.iecsemanipal.com/lolmylifesucks/api/login", {
 			method: "POST",
 			credentials: "include",
 			headers: {
@@ -62,7 +61,7 @@ class App extends Component {
 		});
 
 		fetch("/api/rank", {
-			method: "POST",
+			method: "GET",
 			credentials: "include",
 			headers: {
 			Accept: "application/json",
