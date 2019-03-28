@@ -4,17 +4,19 @@ import "react-awesome-button/dist/styles.css"; // Necessary
 
 class Button extends Component {
 	render() {
-		var submit = (async function() {
-			console.log("Submit Button pressed");
-		});
 		return ( 
-			<AwesomeButton
-				type="primary"
-				action={submit}>
-				Submit Answer
-			</AwesomeButton>
+			<div id="button">
+				<AwesomeButton
+					type="primary"
+					action={ () => {
+						this.props.submit();
+						document.getElementById("buttonResponse").setAttribute("hidden", false);
+					}}>
+					Submit Answer
+				</AwesomeButton>
+				<p hidden={true} id="buttonResponse"> Helloooo </p>
+			</div>
 		);
-
 	}
 }
 

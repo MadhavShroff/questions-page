@@ -1,15 +1,17 @@
-
 import TextField from '@material-ui/core/TextField';
 import React from 'react';
 
-function textField() {
-    return <TextField
-          id="answer"
-          label="Answer"
-          multiline
-          rows="4"
-          variant="outlined"
-    />
+class textField extends React.Component {
+    render() {
+        return <TextField
+            id="answer"
+            label="Answer"
+            onChange={this.props.handleChange}
+            multiline
+            rows="4"
+            variant="outlined"
+        />
+    }
 }
 
 export default textField;

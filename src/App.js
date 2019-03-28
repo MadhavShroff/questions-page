@@ -1,44 +1,96 @@
 import React, { Component } from 'react';
 import './App.css';
-import Sidebar from "./components/sidebar.js";
-import TextField from "./components/textField.js";
-import SubmitButton from "./components/submitButton.js";
+import Parent from "./parent.js";
+
 class App extends Component {
-  render() {
-    return (
-      <div className="App" style={{
-        position: "absolute",
-        top: 0,
-        left: 0,
-        width: "100%",
-        height: "100%"
-      }}>
-        {/* <Particles /> */}
-        <div style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%"
-          }}>
-          <div className="sidebar">
-            <Sidebar />
-          </div>
-          <div id="qanda">
-            <div className="question" id="qsn">
-              <h3>Select a Question...</h3>
-            </div>
-            <div className="answer" id="ans">
-              <TextField />
-              <div className="submit-button" id="submit">
-                <SubmitButton />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
+	constructor() {
+		super()
+		this.state = {
+			questions : "Null"
+		}
+
+		// LOGIN
+		// REMOVE IN PRODUCTION
+
+		fetch("/api/login", {
+			method: "POST",
+			credentials: "include",
+			headers: {
+			Accept: "application/json",
+				"Content-Type": "application/json",
+				"Access-Control-Allow-Credentials": "true"
+			}, body: JSON.stringify({
+				"udata" : "Magician",
+				"upass" : "password"
+			})
+		})
+		.then( (response) => {
+			return response.json();
+		})
+		.then( (myJson) => {
+			console.log(myJson);
+			return myJson;
+		})
+		.catch(err => {
+			console.log(err);
+		});
+		
+		// Fetch Questions
+		fetch("/api/question/getQuestions", {
+			method: "GET",
+			credentials: "include",
+			headers: {
+			Accept: "application/json",
+				"Content-Type": "application/json",
+				"Access-Control-Allow-Credentials": "true",
+				"Access-Control-Allow-Origin" : "http"
+			}
+		})
+		.then( (response) => {
+			console.log(response);
+			return response.json();
+		})
+		.then( (myJson) => {
+			console.log(myJson);
+			this.setState({
+				questions: myJson.questionData
+			})
+			return myJson;
+		})
+		.catch(err => {
+			console.log(err);
+		});
+
+		fetch("/api/rank", {
+			method: "POST",
+			credentials: "include",
+			headers: {
+			Accept: "application/json",
+				"Content-Type": "application/json",
+				"Access-Control-Allow-Credentials": "true"
+			}
+		})
+		.then( (response) => {
+			console.log(response);
+			return response.json();
+		})
+		.then( (myJson) => {
+			console.log(myJson);
+			this.setState({
+				rank: myJson
+			})
+			return myJson;
+		})
+		.catch(err => {
+			console.log(err);
+		});
+	}
+	
+	render() {
+		return (
+			<Parent questions={this.state.questions} userDetails={this.state.userDetails}/>
+		);
+	}
 }
 
 export default App;
