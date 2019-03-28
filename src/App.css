@@ -59,6 +59,7 @@
     margin-left: auto;
     margin-right: auto;
     width: max-content;
+    max-width: 40%;
     border-radius: 7.5px;
     height: 80%;
 }
@@ -74,7 +75,7 @@
 }
 
 .MuiFormControl-root-1 {
-  
+
 }
 
 .answer {

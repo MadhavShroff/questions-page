@@ -13,7 +13,7 @@ class Parent extends Component {
 		};
     }
 
-    render(props) {
+    render() {
         return (
 				<div style={{position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}>
 					<div className="sidebar">
@@ -23,9 +23,8 @@ class Parent extends Component {
 							});
 						}}/>
 					<meta id="qsource"></meta>
-					<meta id=""></meta>
+					<meta id="hints"></meta>
 					</div>
-					<meta id=""></meta>
 					<div id="qanda">
 						<div className="question" id="qsn">
 							<h3>Select a Question...</h3>
@@ -74,11 +73,11 @@ class Parent extends Component {
 							<p id="answer-string"></p>
 							<p id="userData">
 								<h2>Stats</h2>
-								<p>Username: {this.props.userDetails.rank.uname}</p>
-								<p>Rank: {this.props.userDetails.rank.rank}</p>
-								<p>Easy Solved: {this.props.userDetails.rank.ueasy}</p>
-								<p>Medium Solved: {this.props.userDetails.rank.umedium}</p>
-								<p>Hard Solved: {this.props.userDetails.rank.uhard}</p>
+								<p>Username: {this.props.userDetails && this.props.userDetails.rank && this.props.userDetails.rank.uname}</p>
+								<p>Rank: {this.props.userDetails && this.props.userDetails.rank && this.props.userDetails.rank.rank}</p>
+								<p>Easy Solved: {this.props.userDetails && this.props.userDetails.rank && this.props.userDetails.rank.ueasy}</p>
+								<p>Medium Solved: {this.props.userDetails && this.props.userDetails.rank && this.props.userDetails.rank.umedium}</p>
+								<p>Hard Solved: {this.props.userDetails && this.props.userDetails.rank && this.props.userDetails.rank.uhard}</p>
 							</p>
 						</div>
 					</div>
