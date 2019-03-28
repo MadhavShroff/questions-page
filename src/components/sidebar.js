@@ -7,20 +7,20 @@ class Sidebar extends React.Component {
     var displayQsn = (async (selected) => {
         try {
             if(selected === "1") {
-                document.getElementById("qsn").innerHTML = await this.props.questions[0].qtitle + await this.props.questions[0].qbody;
-                this.props.setQid(this.props.questions[0].qid);
-                document.getElementById("qsource").innerHTML = await this.props.questions[0].qsource;
-                document.getElementById("hints").innerHTML = await JSON.stringify(this.props.questions[0].qhints);
+                document.getElementById("qsn").innerHTML = await this.props.questions.questionData[0].qtitle + await this.props.questions.questionData[0].qbody;
+                this.props.setQid(this.props.questions.questionData[0].qid);
+                document.getElementById("qsource").innerHTML = await this.props.questions.questionData[0].qsource;
+                document.getElementById("hints").innerHTML = await JSON.stringify(this.props.questions.questionData[0].qhints);
             } else if(selected === "2") {
-                document.getElementById("qsn").innerHTML = await this.props.questions[1].qtitle + await this.props.questions[1].qbody;
-                this.props.setQid(this.props.questions[1].qid);
-                document.getElementById("qsource").innerHTML = await this.props.questions[1].qsource;
-                document.getElementById("hints").innerHTML = await JSON.stringify(this.props.questions[1].qhints);
+                document.getElementById("qsn").innerHTML = await this.props.questions.questionData[1].qtitle + await this.props.questions.questionData[1].qbody;
+                this.props.setQid(this.props.questions.questionData[1].qid);
+                document.getElementById("qsource").innerHTML = await this.props.questions.questionData[1].qsource;
+                document.getElementById("hints").innerHTML = await JSON.stringify(this.props.questions.questionData[1].qhints);
             } else if(selected === "3") { 
-                document.getElementById("qsn").innerHTML = await this.props.questions[2].qtitle + await this.props.questions[2].qbody;
-                this.props.setQid(this.props.questions[2].qid);
-                document.getElementById("qsource").innerHTML = await this.props.questions[2].qsource;
-                document.getElementById("hints").innerHTML = await JSON.stringify(this.props.questions[2].qhints);
+                document.getElementById("qsn").innerHTML = await this.props.questions.questionData[2].qtitle + await this.props.questions.questionData[2].qbody;
+                this.props.setQid(this.props.questions.questionData[2].qid);
+                document.getElementById("qsource").innerHTML = await this.props.questions.questionData[2].qsource;
+                document.getElementById("hints").innerHTML = await JSON.stringify(this.props.questions.questionData[2].qhints);
             } else if(selected === "4") {
                 window.location = "/api/logout";
             } else if(selected === "5") {
