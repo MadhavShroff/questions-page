@@ -9,33 +9,33 @@ class App extends Component {
 			questions : "Null"
 		}
 
-		// LOGIN
-		// REMOVE IN PRODUCTION
-		fetch("https://cicada.iecsemanipal.com/lolmylifesucks/api/login", {
-			method: "POST",
-			credentials: "include",
-			headers: {
-			Accept: "application/json",
-				"Content-Type": "application/json",
-				"Access-Control-Allow-Credentials": "true"
-			}, body: JSON.stringify({
-				"udata" : "Magician",
-				"upass" : "password"
-			})
-		})
-		.then( (response) => {
-			return response.json();
-		})
-		.then( (myJson) => {
-			console.log(myJson);
-			return myJson;
-		})
-		.catch(err => {
-			console.log(err);
-		});
-		
+		// // LOGIN
+		// // REMOVE IN PRODUCTION
+		// fetch("https://cicada.iecsemanipal.com/lolmylifesucks/api/login", {
+		// 	method: "POST",
+		// 	credentials: "include",
+		// 	headers: {
+		// 	Accept: "application/json",
+		// 		"Content-Type": "application/json",
+		// 		"Access-Control-Allow-Credentials": "true"
+		// 	}, body: JSON.stringify({
+		// 		"udata" : "Magician",
+		// 		"upass" : "password"
+		// 	})
+		// })
+		// .then( (response) => {
+		// 	return response.json();
+		// })
+		// .then( (myJson) => {
+		// 	console.log(myJson);
+		// 	return myJson;
+		// })
+		// .catch(err => {
+		// 	console.log(err);
+		// });
 		// Fetch Questions
-		fetch("/api/question/getQuestions", {
+
+		fetch("localhost:4000/api/question/getQuestions", {
 			method: "GET",
 			credentials: "include",
 			headers: {
@@ -60,7 +60,7 @@ class App extends Component {
 			console.log(err);
 		});
 
-		fetch("/api/rank", {
+		fetch("localhost:4000/api/rank", {
 			method: "GET",
 			credentials: "include",
 			headers: {
@@ -87,7 +87,18 @@ class App extends Component {
 	
 	render() {
 		return (
-			<Parent questions={this.state.questions} userDetails={this.state.userDetails}/>
+		<div>
+			<Parent questions={this.state.questions} userDetails={ {
+				rank : {
+					rank: 7,
+					uname : "madhavshroff99", 
+					usolved : 11,
+					uhard: 1,
+					umedium: 2,
+					ueasy: 8
+				}
+			}}/>
+		</div>
 		);
 	}
 }

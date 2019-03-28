@@ -9,12 +9,22 @@ class Sidebar extends React.Component {
             if(selected === "1") {
                 document.getElementById("qsn").innerHTML = await this.props.questions[0].qtitle + await this.props.questions[0].qbody;
                 this.props.setQid(this.props.questions[0].qid);
+                document.getElementById("qsource").innerHTML = await this.props.questions[0].qsource;
+                document.getElementById("hints").innerHTML = await JSON.stringify(this.props.questions[0].qhints);
             } else if(selected === "2") {
                 document.getElementById("qsn").innerHTML = await this.props.questions[1].qtitle + await this.props.questions[1].qbody;
                 this.props.setQid(this.props.questions[1].qid);
+                document.getElementById("qsource").innerHTML = await this.props.questions[1].qsource;
+                document.getElementById("hints").innerHTML = await JSON.stringify(this.props.questions[1].qhints);
             } else if(selected === "3") { 
                 document.getElementById("qsn").innerHTML = await this.props.questions[2].qtitle + await this.props.questions[2].qbody;
                 this.props.setQid(this.props.questions[2].qid);
+                document.getElementById("qsource").innerHTML = await this.props.questions[2].qsource;
+                document.getElementById("hints").innerHTML = await JSON.stringify(this.props.questions[2].qhints);
+            } else if(selected === "4") {
+                window.location = "/api/logout";
+            } else if(selected === "5") {
+                window.open("https://cicada-rules.surge.sh", "_blank");
             }
         } catch(err) {
             console.log(err.message);
@@ -32,7 +42,7 @@ class Sidebar extends React.Component {
             <SideNav.Nav defaultSelected="home" disabled={false}>
                 <NavItem eventKey="1">
                     <NavIcon>
-                        <i className="fa fa-fw fa-home" style={{ fontSize: '1.75em' }} />
+                        <strong>Q1</strong>
                     </NavIcon>
                     <NavText>
                         Question 1
@@ -40,7 +50,7 @@ class Sidebar extends React.Component {
                 </NavItem>
                 <NavItem eventKey="2">
                     <NavIcon>
-                        <i className="fa fa-fw fa-line-chart" style={{ fontSize: '1.75em' }} />
+                        <strong>Q2</strong>
                     </NavIcon>
                     <NavText>
                         Question 2
@@ -48,10 +58,26 @@ class Sidebar extends React.Component {
                 </NavItem>
                 <NavItem eventKey="3">
                     <NavIcon>
-                        <i className="fa fa-fw fa-line-chart" style={{ fontSize: '1.75em' }} />
+                        <strong>Q3</strong>
                     </NavIcon>
                     <NavText>
                         Question 3
+                    </NavText>
+                </NavItem>
+                <NavItem eventKey="4">
+                    <NavIcon>
+                        Logout
+                    </NavIcon>
+                    <NavText>
+                        Logout
+                    </NavText>
+                </NavItem>
+                <NavItem eventKey="5">
+                    <NavIcon>
+                        Rules
+                    </NavIcon>
+                    <NavText>
+                        Click to View Rules
                     </NavText>
                 </NavItem>
             </SideNav.Nav>
