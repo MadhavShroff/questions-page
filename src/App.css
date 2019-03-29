@@ -3,6 +3,11 @@
   padding: 30px;
 }
 
+.sidebar {
+  height: 100%;
+  position: fixed;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
